@@ -1,8 +1,10 @@
+import 'dotenv/config'
 import express from "express";
+import {connectDB} from './config/db_config.js'
 
-
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 const app = express();
+connectDB();
 
 app.get('/', (req,res) => {
     res.status(200).json({
